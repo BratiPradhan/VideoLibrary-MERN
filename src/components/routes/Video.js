@@ -17,13 +17,13 @@ export default function Video() {
             <VideoPlayer/>
 
             <WrapperDashboard>
-                <Nav variant="pills" defaultActiveKey="/video/">
+                <Nav variant="pills" defaultActiveKey="/video/overview">
                     <Nav.Item>
-                        <NavLink activeClassName="active" className="nav-link" to="/video/">Overview</NavLink>
+                        <NavLink activeClassName="active" className="nav-link" to="/video/overview">Overview</NavLink>
                         {/* <Nav.Link href="/home">Active</Nav.Link> */}
                     </Nav.Item>
                     <Nav.Item>
-                        <NavLink activeClassName="active" className="nav-link" to="#notes">Notes</NavLink>
+                        <NavLink activeClassName="active" className="nav-link" to="/video/notes">Notes</NavLink>
                         {/* <Nav.Link eventKey="link-1">Option 2</Nav.Link> */}
                     </Nav.Item>
 
@@ -41,12 +41,14 @@ export default function Video() {
                 </Nav>
 
                 <Routes>
-                    <Route path="/" element={<Overview/>}></Route>
-                    <Route path="#notes" element={<Notes/>}></Route>
+                    <Route path="/overview" element={<Overview/>}></Route>
+                    <Route path="/notes" element={<Notes/>}></Route>
                     <Route path="/announcements" element={<Announcements/>}></Route>
                     <Route path="/your-progress" element={<YourProgress/>}></Route>
                     <Route path="/rate-this-course" element={<RateThisCourse/>}></Route>
                 </Routes>
+
+            
             </WrapperDashboard>
         </WrapperVideo>
     )

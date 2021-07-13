@@ -15,7 +15,7 @@ export default function CardSlider() {
 
                     <Card.Body>
                         <Card.Title>{item.name}</Card.Title>
-                        <Card.Subtitle>{item.author}</Card.Subtitle>
+                        <Card.Subtitle>{item.author.name}</Card.Subtitle>
                     </Card.Body>
                 </Card>))
             } 
