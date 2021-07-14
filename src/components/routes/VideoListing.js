@@ -30,7 +30,7 @@ export default function VideoListing() {
             <h3>Popular Artists</h3>
             <ul>
                 {
-                    videos.map((item,index) => <li key={index}>{item.author}</li>)
+                    videos.map((item,index) => <li key={index}>{item.author.name}</li>)
                 }
             </ul>
 
@@ -61,8 +61,8 @@ export default function VideoListing() {
                     {
                         videos.map((item, index) => <li key={index}>
                             <h4>{item.name}</h4>
-                            <p>{item.description}</p>
-                            <p><small>{item.author}</small></p>
+                            <p>{item.description.name}</p>
+                            <p><small>{item.author.name}</small></p>
                         </li>)
                     }
                 </ul>
