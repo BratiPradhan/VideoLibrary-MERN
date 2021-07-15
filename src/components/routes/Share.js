@@ -17,17 +17,17 @@ export default function Share() {
 
 
             <InputGroup className="mb-3">
-    <FormControl
-    value={url}
-    disabled
-      placeholder="Recipient's username"
-      aria-label="Recipient's username"
-      aria-describedby="basic-addon2"
-    />
-    <Button onClick={() =>  navigator.clipboard.writeText(url)} variant="outline-secondary" id="button-addon2">
-      Copy
-    </Button>
-  </InputGroup>
+                <FormControl
+                value={url}
+                disabled
+                placeholder="Recipient's username"
+                aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
+                />
+                <Button onClick={() =>  navigator.clipboard.writeText(url)} variant="outline-secondary" id="button-addon2">
+                Copy
+                </Button>
+            </InputGroup>
         </div>
     )
 }
