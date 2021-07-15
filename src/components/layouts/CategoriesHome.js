@@ -1,4 +1,5 @@
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import { categories } from './object'
 
 import { Card  } from 'react-bootstrap'
@@ -39,7 +40,7 @@ export default function CategoriesHome() {
                         <h3>{item.name}</h3>
                         <ul>
                             {
-                                item.topics.map((topic, index) => <li key={index}>{topic}</li>)
+                                item.topics.map((topic, index) => <li key={uuidv4()}>{topic}</li>)
                             }
                         </ul>
                     </li>)

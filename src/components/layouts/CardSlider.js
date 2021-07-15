@@ -1,4 +1,5 @@
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid';
 // import { Link } from 'react-router-dom'
 
 import { videos } from './object'
@@ -9,8 +10,8 @@ export default function CardSlider() {
     return (
         <WrapperCardSlider>
             {
-                videos.map((item, index) =>(
-                <Card key={index}>
+                videos.map((item) =>(
+                <Card key={uuidv4()}>
                     <Card.Img style={{ height: '70%', width: '100%' }} src="https://via.placeholder.com/450" alt='Video Thumbnail' />
 
                     <Card.Body>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import { Button, Dropdown, DropdownButton } from 'react-bootstrap'
 
 import { WrapperVideoListing } from '../../StyledComponents/routes/VideoListing.style'
@@ -23,14 +24,14 @@ export default function VideoListing() {
             <h3>Popular topics</h3>
             <ul>
                 {
-                    categories[0].topics.map((item,index) => <li key={index}>{item}</li>)
+                    categories[0].topics.map((item,index) => <li key={uuidv4()}>{item}</li>)
                 }
             </ul>
 
             <h3>Popular Artists</h3>
             <ul>
                 {
-                    videos.map((item,index) => <li key={index}>{item.author.name}</li>)
+                    videos.map((item,index) => <li key={uuidv4()}>{item.author.name}</li>)
                 }
             </ul>
 
@@ -59,7 +60,7 @@ export default function VideoListing() {
 
                 <ul>
                     {
-                        videos.map((item, index) => <li key={index}>
+                        videos.map((item) => <li key={uuidv4()}>
                             <h4>{item.name}</h4>
                             <p>{item.description.name}</p>
                             <p><small>{item.author.name}</small></p>

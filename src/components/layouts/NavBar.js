@@ -1,4 +1,5 @@
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button, ButtonGroup, DropdownButton } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import { NavbarComponent } from '../../StyledComponents/layouts/NavBar.style'
@@ -13,16 +14,16 @@ export default function NavBar() {
                 <Nav>
                     <NavDropdown title="Categories" id="basic-nav-dropdown">
                         {
-                            categories.map(item => <DropdownButton
+                            categories.map((item) => <DropdownButton
                                 as={ButtonGroup}
-                                key='right'
+                                key={uuidv4()}
                                 id={`dropdown-button-drop-right`}
                                 drop='right'
                                 variant="light"
                                 title={` ${item.name} `}
                             >
                                 {
-                                    item.topics.map((topic) => <NavLink activeClassName="active" className="dropdown-item" to={`/${item.name}/${topic}`} >{topic}</NavLink>)
+                                    item.topics.map((topic) => <NavLink key={uuidv4()} activeClassName="active" className="dropdown-item" to={`/${item.name}/${topic}`} >{topic}</NavLink>)
                                 }
                                 {/* <Dropdown.Item eventKey="1">Action</Dropdown.Item>
                                 <Dropdown.Item eventKey="2">Another action</Dropdown.Item>

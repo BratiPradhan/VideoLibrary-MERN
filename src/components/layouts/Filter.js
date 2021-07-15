@@ -1,4 +1,5 @@
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import { Accordion, Card, Button, InputGroup } from 'react-bootstrap'
 import { categories } from './object'
 
@@ -127,8 +128,8 @@ export default function Filter() {
                         <Card.Body>
 
                             {
-                                categories[0].topics.map((item, index)  => (
-                                <InputGroup key={index} className="mb-3">
+                                categories[0].topics.map((item)  => (
+                                <InputGroup key={uuidv4()} className="mb-3">
                                     <InputGroup.Prepend>
                                         <InputGroup.Checkbox aria-label="Checkbox for following topic" />
                                     </InputGroup.Prepend>
