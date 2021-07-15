@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaRegStickyNote } from 'react-icons/fa'
+import { FaRegStickyNote, FaExpandAlt, FaCompressAlt } from 'react-icons/fa'
 
 import video from '../../videos/652333414.mp4'
 
@@ -26,11 +26,15 @@ export default function VideoPlayer() {
                 <button data-skip="-10" className="player__button">« 10s</button>
                 <button data-skip="25" className="player__button">25s »</button>
                 <Link to="/video/notes"><FaRegStickyNote/></Link>
+                <button><FaExpandAlt/></button>
+                <button><FaCompressAlt/></button>
                 
 
 
                 {/* Popover should be placed on top right cornner of the video, so that it acts like save to playlist */}
                 <SaveToPopver/>
+
+
                 
                 
             </div>
