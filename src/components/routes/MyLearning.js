@@ -1,6 +1,7 @@
 import React from 'react'
 import { Nav } from 'react-bootstrap'
 import { NavLink, Routes, Route } from 'react-router-dom'
+import { WrapperMyLearning, WrapperNav, WrapperRoutes } from '../../StyledComponents/routes/MyLearning.style'
 import Favorites from './Favorites'
 import LearningHistory from './LearningHistory'
 import Playlists from './Playlists'
@@ -8,10 +9,9 @@ import Playlists from './Playlists'
 
 export default function MyLearning() {
     return (
-        <div>
+        <WrapperMyLearning>
+            <WrapperNav>
             <h1>My learning</h1>
-
-
             <Nav variant="pills" defaultActiveKey="/my-videos/learning-history">
                     <Nav.Item>
                         <NavLink activeClassName="active" className="nav-link" to="/my-videos/learning-history">All videos</NavLink>
@@ -32,12 +32,15 @@ export default function MyLearning() {
                         <NavLink activeClassName="active" className="nav-link" to="/video/share">Share <FaShare/></NavLink>
                     </Nav.Item> */}
                 </Nav>
+            </WrapperNav>
 
+            <WrapperRoutes>
                 <Routes>
                     <Route path="/learning-history" element={<LearningHistory/>}></Route>
                     <Route path="/playlist" element={<Playlists/>}></Route>
                     <Route path="/favorite" element={<Favorites/>}></Route>
                 </Routes>
-        </div>
+                </WrapperRoutes>
+        </WrapperMyLearning>
     )
 }
