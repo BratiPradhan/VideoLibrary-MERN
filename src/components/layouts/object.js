@@ -6,7 +6,7 @@ import categoryToysImg from '../../images/category-toys.svg'
 
 export const categories = [
     {
-        "name": "home-decors",
+        "name": "home decors",
         "img": `${categoryHomeDecorImg}`,
         "topics": ['Wall Art', 'Statues', 'Decorative Bowls']
     },
@@ -16,7 +16,7 @@ export const categories = [
         "topics": ['Necklaces', 'Bangles', 'Bracelets', 'Ear rings']
     },
     {
-        "name": "fashion-accessories",
+        "name": "fashion accessories",
         "img": `${categoryFashionAccessoryImg}`,
         "topics": ['Hair Bands', 'Scarf', 'Socks', 'Tie']
     },

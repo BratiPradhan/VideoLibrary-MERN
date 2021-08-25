@@ -5,47 +5,45 @@ import { categories } from './object'
 import { Card  } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-import { CategoryCardItem, CategoryList, WrapperCategoriesHome } from '../../StyledComponents/layouts/CategoriesHome.style'
+import { CategoryCardItem, CategoryCardWrapper, CategoryLink, CategoryList, HeaderCategories, HeaderCategory, TopicLink, TopicList, WrapperCategoriesHome } from '../../StyledComponents/layouts/CategoriesHome.style'
+import { useVideosRoute } from '../../context/RouteVideoListingContext';
 
 export default function CategoriesHome() {
+
+    const { setRoute } = useVideosRoute()
+
     return (
         <WrapperCategoriesHome>
-            <h2>Top Categories</h2>
+            <HeaderCategories>Top Categories</HeaderCategories>
 
             <CategoryList>
                 {
-                    categories.map(item => <CategoryCardItem key={item.name}>
-                        <Card.Img style={{ height: '70%', width: '100%' }} src={item.img} alt='Category' />
-
-                        <Card.Body>
-    <Link className="card-title" to="/">{item.name}</Link>
-  </Card.Body>
-
-                        {/* <a href="/">{item.name}</a> */}
-                    </CategoryCardItem>)
+                    categories.map(item => 
+                    <CategoryCardWrapper key={item.name}>
+                        <CategoryCardItem >
+                            <Card.Img style={{ height: '100%', width: '100%' }} src={item.img} alt='Category' />
+                        </CategoryCardItem>
+                        <CategoryLink onClick={() => setRoute(item.name)} className="card-title" to={`/videos/${item.name}`}>{item.name}</CategoryLink>
+                    </CategoryCardWrapper>)
                 }
-                {/* <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-  </Card.Body>
-</Card> */}
+                
             </CategoryList>
 
-            <h2>Featured topic by categories</h2>
+            
+            <HeaderCategories>Featured topic by categories</HeaderCategories>
 
-            <ul>
+            <CategoryList>
                 {
                     categories.map(item => <li key={item.name}>
-                        <h3>{item.name}</h3>
-                        <ul>
+                        <HeaderCategory>{item.name}</HeaderCategory>
+                        <TopicList>
                             {
-                                item.topics.map((topic, index) => <li key={uuidv4()}>{topic}</li>)
+                                item.topics.map((topic, index) => <TopicLink onClick={() => setRoute(topic)} to={`/videos/${item.name}/${topic}`} key={uuidv4()}>{topic}</TopicLink>)
                             }
-                        </ul>
+                        </TopicList>
                     </li>)
                 }
-            </ul>
+            </CategoryList>
 
         </WrapperCategoriesHome>
     )

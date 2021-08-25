@@ -22,5 +22,5 @@ export const CardOptionsDropdown = styled(DropdownButton)`
 position: absolute;
 top: 0.5rem;
 right: 0.5rem;
-border-right: 0;
+border: 0;
 `

@@ -2,42 +2,46 @@ import React from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { Button, Dropdown, DropdownButton } from 'react-bootstrap'
 
-import { WrapperVideoListing } from '../../StyledComponents/routes/VideoListing.style'
+import { VideosHeader, VideosSubHeader, WrapperVideoListing } from '../../StyledComponents/routes/VideoListing.style'
 import CardSlider from '../layouts/CardSlider'
 import Filter from '../layouts/Filter'
 import { categories, videos } from '../layouts/object'
+import Description from '../layouts/Description';
+import TopicSlider from '../layouts/TopicSlider';
+import { useVideosRoute } from '../../context/RouteVideoListingContext';
 
 export default function VideoListing() {
+
+    const { route } = useVideosRoute()
+
+
     return (
         <WrapperVideoListing>
-            <h1>Home Decor Videos</h1>
+            <VideosHeader>{route === "videos" ? "" : route} Videos</VideosHeader>
 
-            <h3>Courses to get you started</h3>
+            <VideosSubHeader>Courses to get you started</VideosSubHeader>
             <CardSlider/>
 
-            <ul>
-                <li>Over 1000 videos on best out of waste creative skills</li>
-                <li>Choose from top industry artists across the world</li>
-                <li>Learn at your own pace, with lifetime access on mobile and desktop</li>
-            </ul>
+            <Description/>
 
-            <h3>Popular topics</h3>
-            <ul>
+            <VideosSubHeader>Popular topics</VideosSubHeader>
+            {/* <ul>
                 {
                     categories[0].topics.map((item,index) => <li key={uuidv4()}>{item}</li>)
                 }
-            </ul>
+            </ul> */}
+            <TopicSlider/>
 
-            <h3>Popular Artists</h3>
-            <ul>
+            <VideosSubHeader>Popular Artists</VideosSubHeader>
+            <ul style={{gridColumn: "2 / -2"}}>
                 {
                     videos.map((item,index) => <li key={uuidv4()}>{item.author.name}</li>)
                 }
             </ul>
 
-            <h2>All Home Decor videos</h2>
+            <VideosSubHeader>All Home Decor videos</VideosSubHeader>
             
-            <ul>
+            <ul style={{gridColumn: "2 / -2"}}>
                 <Button variant="outline-info">Filter</Button>
 
                 <DropdownButton id="dropdown-variants-Info" variant="info" title="Sort">
@@ -55,7 +59,7 @@ export default function VideoListing() {
             </ul>
 
 
-            <article>
+            <article style={{gridColumn: "2 / -2"}}>
                 <Filter/>
 
                 <ul>

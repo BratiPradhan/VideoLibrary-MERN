@@ -36,6 +36,10 @@ export default function VideoCard() {
         <Dropdown.Item eventKey="6"><HiStar/> Favorite</Dropdown.Item>
       </CardOptionsDropdown>
 
+      <div>
+        100% Complete
+      </div>
+
         </Card.Body>
         </WrapperVideoCard>
     )
